@@ -1,33 +1,87 @@
 import React from 'react';
+import calculate from '../logic/calculate';
 
+const keys = [
+  ['AC', '+/-', '%', '÷'],
+  ['7', '8', '9', 'x'],
+  ['4', '5', '6', '-'],
+  ['1', '2', '3', '+'],
+  ['0', '.', '='],
+];
 class CalculatorBody extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    this.state = {
+      obj: {
+        total: null,
+        next: null,
+        operation: null,
+      },
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(e) {
+    const buttonName = e.target.textContent;
+    const { obj } = this.state;
+    const res = calculate(obj, buttonName);
+    this.setState({ obj: res });
+  }
+
   render() {
+    const firstRow = keys[0].map((buttonName) => {
+      if (buttonName === '÷') {
+        return <button type="button" onClick={this.handleClick} className="key action" key={buttonName}>{buttonName}</button>;
+      }
+      return <button type="button" onClick={this.handleClick} className="key" key={buttonName}>{buttonName}</button>;
+    });
+    const secondRow = keys[1].map((buttonName) => {
+      if (buttonName === 'x') {
+        return <button type="button" onClick={this.handleClick} className="key action" key={buttonName}>{buttonName}</button>;
+      }
+      return <button type="button" onClick={this.handleClick} className="key" key={buttonName}>{buttonName}</button>;
+    });
+    const thirdRow = keys[2].map((buttonName) => {
+      if (buttonName === '-') {
+        return <button type="button" onClick={this.handleClick} className="key action" key={buttonName}>{buttonName}</button>;
+      }
+      return <button type="button" onClick={this.handleClick} className="key" key={buttonName}>{buttonName}</button>;
+    });
+    const fourthRow = keys[3].map((buttonName) => {
+      if (buttonName === '+') {
+        return <button type="button" onClick={this.handleClick} className="key action" key={buttonName}>{buttonName}</button>;
+      }
+      return <button type="button" onClick={this.handleClick} className="key" key={buttonName}>{buttonName}</button>;
+    });
+    const fifthRow = keys[4].map((buttonName) => {
+      if (buttonName === '0') {
+        return <button type="button" onClick={this.handleClick} className="key zero" key={buttonName}>{buttonName}</button>;
+      } if (buttonName === '=') {
+        return <button type="button" onClick={this.handleClick} className="key action" key={buttonName}>{buttonName}</button>;
+      }
+      return <button type="button" onClick={this.handleClick} className="key" key={buttonName}>{buttonName}</button>;
+    });
+
+    const { obj } = this.state;
+    const { total, next } = obj;
     return (
       <div className="calculator">
         <div className="display">
-          <input type="text" id="display" placeholder="0" readOnly />
+          <input
+            type="text"
+            id="display"
+            value={next || total || '0'}
+            readOnly
+          />
         </div>
-        <ul className="keypad">
-          <li id="clear" className="key">AC</li>
-          <li id="plus-minus" className="key">&#177;</li>
-          <li id="percent" className="key">&#37;</li>
-          <li id="divide" className="key action">&#247;</li>
-          <li className="key">7</li>
-          <li className="key">8</li>
-          <li className="key">9</li>
-          <li id="times" className="key action">&#215;</li>
-          <li className="key">4</li>
-          <li className="key">5</li>
-          <li className="key">6</li>
-          <li id="minus" className="key action">&#8722;</li>
-          <li className="key">1</li>
-          <li className="key">2</li>
-          <li className="key">3</li>
-          <li id="plus" className="key action">&#x2b;</li>
-          <li className="key zero">0</li>
-          <li className="key decimal">&#8901;</li>
-          <li id="equals" className="key action">&#61;</li>
-        </ul>
+        <div className="keypad">
+          {firstRow}
+          {secondRow}
+          {thirdRow}
+          {fourthRow}
+          {fifthRow}
+        </div>
       </div>
     );
   }
