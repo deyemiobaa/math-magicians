@@ -1,5 +1,6 @@
 import React from 'react';
 import calculate from '../logic/calculate';
+import NavBar from './nav';
 
 const keys = [
   ['AC', '+/-', '%', '÷'],
@@ -66,23 +67,27 @@ class CalculatorBody extends React.PureComponent {
     const { obj } = this.state;
     const { total, next } = obj;
     return (
-      <div className="calculator">
-        <div className="display">
-          <input
-            type="text"
-            id="display"
-            value={next || total || '0'}
-            readOnly
-          />
+      <>
+        <NavBar />
+        <h1 className="calculator-header">Let&apos;s do some maths!</h1>
+        <div className="calculator">
+          <div className="display">
+            <input
+              type="text"
+              id="display"
+              value={next || total || '0'}
+              readOnly
+            />
+          </div>
+          <div className="keypad">
+            {firstRow}
+            {secondRow}
+            {thirdRow}
+            {fourthRow}
+            {fifthRow}
+          </div>
         </div>
-        <div className="keypad">
-          {firstRow}
-          {secondRow}
-          {thirdRow}
-          {fourthRow}
-          {fifthRow}
-        </div>
-      </div>
+      </>
     );
   }
 }
