@@ -33,7 +33,7 @@ li {
   align-items: center;
 }
 
-button {
+.quote-button {
   padding: 10px 15px;
   margin-top: 50px;
   background: var(--text-color);
@@ -61,7 +61,7 @@ button {
 
 .calculator {
   width: 30%;
-  height: 70%;
+  height: 60%;
 }
 
 .calculator-header {

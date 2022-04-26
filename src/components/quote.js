@@ -54,6 +54,7 @@ class QuoteBody extends React.PureComponent {
             {source}
           </p>
           <button
+            className="quote-button"
             type="button"
             onClick={() => this.switchQuote()}
           >
