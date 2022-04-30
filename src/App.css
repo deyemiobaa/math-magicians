@@ -5,7 +5,7 @@
   --color-secondary: rgb(245, 145, 62);
   --color-primary: rgb(221, 221, 221);
   --text-area: rgb(133, 134, 148);
-  --padding: 15px;
+  --padding: 10px;
   --font: 500 1.2rem 'Poppins', sans-serif;
 }
 
@@ -59,11 +59,6 @@ li {
   justify-content: space-around;
 }
 
-.calculator {
-  width: 30%;
-  height: 60%;
-}
-
 .calculator-header {
   font-size: 2rem;
 }
@@ -71,19 +66,17 @@ li {
 .keypad {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, calc(100% / 4));
   align-items: center;
   border-radius: 50px;
-  height: 75%;
 }
 
 .key {
-  padding: var(--padding);
   text-align: center;
   border: 1px solid rgba(190, 189, 189, 0.8);
   background: var(--color-primary);
   cursor: pointer;
-  height: 100%;
+  padding: var(--padding);
 }
 
 .key:hover {
@@ -104,13 +97,11 @@ li {
 
 .display {
   width: 100%;
-  height: 15%;
   background: var(--text-area);
 }
 
 #display {
   width: 100%;
-  height: 100%;
   display: flex;
   align-items: center;
   text-align: right;
@@ -122,4 +113,10 @@ li {
 
 #display::placeholder {
   color: rgba(190, 189, 189);
+}
+
+@media screen and (max-width: 982px) {
+  .container {
+    flex-direction: column;
+  }
 }
