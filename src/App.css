@@ -6,7 +6,7 @@
   --color-primary: rgb(221, 221, 221);
   --text-area: rgb(133, 134, 148);
   --padding: 10px;
-  --font: 500 1.2rem 'Poppins', sans-serif;
+  --font: 500 1rem 'Poppins', sans-serif;
 }
 
 * {
@@ -26,11 +26,19 @@ li {
   list-style: none;
 }
 
+#root {
+  height: 100vh;
+}
+
 .home-text {
   width: 70%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+p {
+  text-align: center;
 }
 
 .quote-button {
@@ -53,25 +61,33 @@ li {
 
 .container {
   width: 100%;
-  height: 100vh;
+  height: 70%;
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
+.calculator {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 80%;
+  width: 30%;
+}
+
 .calculator-header {
-  font-size: 2rem;
+  font-size: 1.4rem;
 }
 
 .keypad {
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(4, calc(100% / 4));
+  grid-template-columns: repeat(4, 1fr);
   align-items: center;
   border-radius: 50px;
 }
 
 .key {
+  height: 100%;
   text-align: center;
   border: 1px solid rgba(190, 189, 189, 0.8);
   background: var(--color-primary);
@@ -105,7 +121,7 @@ li {
   display: flex;
   align-items: center;
   text-align: right;
-  font-size: 2.5rem;
+  font-size: 2rem;
   font-weight: 500;
   color: #fff;
   padding: 0 var(--padding);
@@ -118,5 +134,9 @@ li {
 @media screen and (max-width: 982px) {
   .container {
     flex-direction: column;
+  }
+
+  .calculator {
+    width: 50%;
   }
 }

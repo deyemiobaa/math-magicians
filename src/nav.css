@@ -1,33 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 
-:root {
-  --text-color: #000;
-  --padding: 30px;
-  --font: 500 1.2rem 'Poppins', sans-serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: none;
-  box-sizing: border-box;
-  text-decoration: none;
-  font: var(--font);
-  color: var(--text-color);
-}
-
 .navigation {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  position: fixed;
-  top: 0;
-  padding: var(--padding) 50px;
+  padding: 30px 50px;
 }
 
 .navigation > h1 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .nav-links {

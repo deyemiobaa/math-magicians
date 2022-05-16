@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from './nav';
 
 class QuoteBody extends React.PureComponent {
   constructor(props) {
@@ -44,24 +43,21 @@ class QuoteBody extends React.PureComponent {
   render() {
     const { text, source } = this.state;
     return (
-      <>
-        <NavBar />
-        <div className="home-text">
-          <p className="quotes">
-            {text}
-          </p>
-          <p className="quote-source source">
-            {source}
-          </p>
-          <button
-            className="quote-button"
-            type="button"
-            onClick={() => this.changeQuote()}
-          >
-            New Quote
-          </button>
-        </div>
-      </>
+      <div className="home-text">
+        <p className="quotes">
+          {text}
+        </p>
+        <p className="quote-source source">
+          {source}
+        </p>
+        <button
+          className="quote-button"
+          type="button"
+          onClick={() => this.changeQuote()}
+        >
+          New Quote
+        </button>
+      </div>
     );
   }
 }

@@ -1,6 +1,5 @@
 import React from 'react';
 import calculate from '../logic/calculate';
-import NavBar from './nav';
 
 const keys = [
   ['AC', '+/-', '%', '÷'],
@@ -68,7 +67,6 @@ class CalculatorBody extends React.PureComponent {
     const { total, next } = obj;
     return (
       <>
-        <NavBar />
         <h1 className="calculator-header">Let&apos;s do some maths!</h1>
         <div className="calculator">
           <div className="display">
