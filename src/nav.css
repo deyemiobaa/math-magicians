@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 30px 50px;
+}
+
+.navigation > h1 {
+  font-size: 1.2rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  column-gap: 20px;
+}
+
+.links:hover {
+  text-decoration: underline;
+}

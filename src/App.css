@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+:root {
+  --text-color: #000;
+  --color-secondary: rgb(245, 145, 62);
+  --color-primary: rgb(221, 221, 221);
+  --text-area: rgb(133, 134, 148);
+  --padding: 10px;
+  --font: 500 1.1rem 'Poppins', sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  box-sizing: border-box;
+  text-decoration: none;
+  font: var(--font);
+  color: var(--text-color);
+}
+
+ol,
+ul,
+li {
+  list-style: none;
+}
+
+#root {
+  height: 100vh;
+}
+
+.home-text {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+p {
+  text-align: center;
+}
+
+.quote-button {
+  padding: 10px 15px;
+  margin-top: 50px;
+  background: var(--text-color);
+  color: var(--color-primary);
+  border-radius: 5px;
+}
+
+.source {
+  margin-top: 20px;
+  text-decoration: underline;
+}
+
+.quotes,
+.quote-source {
+  text-align: center;
+}
+
+.container {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.calculator {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  min-height: 80%;
+  width: 30%;
+}
+
+.calculator-header {
+  font-size: 1.4rem;
+}
+
+.keypad {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center;
+  border-radius: 50px;
+}
+
+.key {
+  height: 100%;
+  text-align: center;
+  border: 1px solid rgba(190, 189, 189, 0.8);
+  background: var(--color-primary);
+  cursor: pointer;
+  padding: var(--padding);
+}
+
+.key:hover {
+  opacity: 0.7;
+}
+
+.key:active {
+  border-radius: 40px;
+}
+
+.zero {
+  grid-column: 1 / span 2;
+}
+
+.action {
+  background: var(--color-secondary);
+}
+
+.display {
+  width: 100%;
+  background: var(--text-area);
+}
+
+#display {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-align: right;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #fff;
+  padding: 0 var(--padding);
+}
+
+#display::placeholder {
+  color: rgba(190, 189, 189);
+}
+
+@media screen and (max-width: 982px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .calculator {
+    width: 50%;
+  }
+}
